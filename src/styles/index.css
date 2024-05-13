@@ -1,3 +1,12 @@
 /* 
     General Styles
 */
+h2{
+    color: red;
+}
+.scroll-container{
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: thin;
+    scrollbar-color: black white;
+}

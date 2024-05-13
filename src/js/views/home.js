@@ -3,10 +3,12 @@ import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
+import { Personajes } from "../component/personajes";
+import { Planetas } from "../component/planetas";
+import { Naves } from "../component/naves";
 
 export const Home = () => {
 
-	const { store, actions} = useContext(Context);
 
 	return (
 		<div className="container-fluid">
@@ -26,30 +28,18 @@ export const Home = () => {
   			</div>
 		</nav>
 
-		<h2 className="danger">Characters</h2>
-		{store.people.map((person) => (
-			<div className="card-container">
-				<div className="card w-25">
-					<img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Star_Wars_Logo.svg" className="card-img-top" alt="..."/>
-					<div className="card-body">
-						<h5 className="card-title">Card title</h5>
-						<div className="d-flex flex-column mb-3">
-							<span>Gender: {person.gender}</span>
-							<span>Hair Color: {person.hair_color}</span>
-							<span>Eye-color: {person.eye_color}</span>
-						</div>	
-						<Link to="/details">
-							<a href="#" className="btn btn-primary">Learn more</a>
-						</Link>
-						
-					</div>
-				</div>
-			</div>
-		)
-		)}
-		
-		<h2>Planets</h2>
-		<h2>Vehicles</h2>
+		<h2>Characters</h2>
+		<div>
+			<Personajes />
+		</div>
+		<h2>Planetas</h2>
+		<div>
+			<Planetas />
+		</div>
+		<h2>Naves</h2>
+		<div>
+			<Naves />
+		</div>
 
 
 	</div>
