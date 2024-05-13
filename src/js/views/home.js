@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 import { Context } from "../store/appContext";
+import { Link } from "react-router-dom";
 
 export const Home = () => {
 
@@ -37,7 +38,10 @@ export const Home = () => {
 							<span>Hair Color: {person.hair_color}</span>
 							<span>Eye-color: {person.eye_color}</span>
 						</div>	
-						<a href="#" className="btn btn-primary">Learn more</a>
+						<Link to="/details">
+							<a href="#" className="btn btn-primary">Learn more</a>
+						</Link>
+						
 					</div>
 				</div>
 			</div>
