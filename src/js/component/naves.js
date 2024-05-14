@@ -1,13 +1,15 @@
 import React, { useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../../styles/index.css";
+import { CiHeart } from "react-icons/ci";
 
 export const Naves = () => {
 
     const { store, actions} = useContext(Context);
-
-    console.log("naves: ",actions.cargarNaves())
+    const navigate = useNavigate();
+    
+    console.log("NAVES ",store.naves);
 
     useEffect(() => {
         actions.cargarNaves();
@@ -29,9 +31,14 @@ export const Naves = () => {
                                 <span>Cargo capacity: {nave.cargo_capacity}</span>
                                 <span>Length: {nave.length}</span>
                             </div>	
-                            <Link to="/details">
-                                <a href="#" className="btn btn-primary">Learn more</a>
-                            </Link>
+                            
+                            <div className="d-flex justify-content-between">
+                                <a href="#" onClick={() => navigate(`/naveDetalles/${nave.uid}`)} className="btn btn-primary">Ver detalles</a>
+                                <button className="btn btn-warning">
+                                    <CiHeart className="iconoMeGusta"/>
+                                </button>
+                            </div>
+                           
                         </div>
                     </div>
                 ))}

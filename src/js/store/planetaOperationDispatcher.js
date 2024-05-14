@@ -19,6 +19,20 @@ const planetaOperationDispatcher = {
             .then(data => console.log(data))
             .catch(err => console.error(err))
         */
+    },
+
+    getPlaneta: async (uid) => {
+        const response = await fetch(`https://www.swapi.tech/api/planets/${uid}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type':'application/json'
+            }
+        })
+        if(response.ok){
+            return await response.json();
+        }else{
+            console.log("Error al cargar los detalles del planeta");
+        }
     }
 }
 

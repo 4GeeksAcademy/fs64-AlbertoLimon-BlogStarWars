@@ -1,9 +1,13 @@
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { Context } from "../store/appContext"
 
 export const PersonajeDetalles = () => {
 
     const { store, actions } = useContext(Context);
+
+	useEffect(() => {
+		actions.obtenerDetallesPersonaje();
+	}, []);
 
     return (
         <>
@@ -11,7 +15,7 @@ export const PersonajeDetalles = () => {
 				<div className="card  d-flex flex-row mb-3">
 					<img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Star_Wars_Logo.svg" className="card-img-top w-50" alt="..."/>
 					<div className="card-body text-center">
-						<h5 className="card-title">Card title</h5>
+						<h4 className="card-title"></h4>
 						<p>
 
 						</p>
@@ -21,22 +25,28 @@ export const PersonajeDetalles = () => {
 				
 				<div class="row">
 					<div class="col d-flex justify-content-center">
-						Name
+						<p>Name</p>
+						<p></p>
 					</div>
 					<div class="col d-flex justify-content-center">
-						Birth Year
+						<p>Birth Year</p>
+						<p></p>
 					</div>
 					<div class="col d-flex justify-content-center">
-						Gender
+						<p>Gender</p>
+						<p></p>
 					</div>
 					<div class="col d-flex justify-content-center">
-						Height
+						<p>Height</p>
+						<p></p>
 					</div>
 					<div class="col d-flex justify-content-center">
-						Skin color
+						<p>Skin color</p>
+						<p></p>
 					</div>
 					<div class="col d-flex justify-content-center">
-						Eye color
+						<p>Eye color</p>
+						<p></p>
 					</div>
 				
 				</div>

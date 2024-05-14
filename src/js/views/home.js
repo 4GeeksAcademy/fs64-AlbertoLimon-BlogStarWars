@@ -28,16 +28,16 @@ export const Home = () => {
   			</div>
 		</nav>
 
-		<h2>Characters</h2>
-		<div>
+		<h2>Personajes</h2>
+		<div className="contenido">
 			<Personajes />
 		</div>
 		<h2>Planetas</h2>
-		<div>
+		<div className="contenido">
 			<Planetas />
 		</div>
 		<h2>Naves</h2>
-		<div>
+		<div className="contenido">
 			<Naves />
 		</div>
 

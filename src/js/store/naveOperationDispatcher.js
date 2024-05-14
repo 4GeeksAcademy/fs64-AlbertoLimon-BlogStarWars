@@ -19,7 +19,23 @@ const naveOperationDispatcher = {
             .then(data => return data)
             .catch(err => console.error(err))
         */
+    },
+
+    getNave: async (uid) => {
+        const response = await fetch(`https://www.swapi.tech/api/vehicles/${uid}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type':'application/json'
+            }
+        })
+        if(response.ok){
+            return await response.json();
+        }else{
+            console.log("Error al cargar los detalles de la nave");
+        }
     }
+
+    
 }
 
 export default naveOperationDispatcher;

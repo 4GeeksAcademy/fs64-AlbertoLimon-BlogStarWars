@@ -1,11 +1,15 @@
 import React, { useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../../styles/index.css";
+import { CiHeart } from "react-icons/ci";
 
 export const Personajes = () => {
     
     const { store, actions} = useContext(Context);
+    const navigate = useNavigate();
+
+    console.log("PERSONAJES ",store.personajes)
 
     useEffect(() => {
         actions.cargarPersonajes();
@@ -26,9 +30,15 @@ export const Personajes = () => {
                                 <span>Hair Color: {personaje.hair_color}</span>
                                 <span>Eye-color: {personaje.eye_color}</span>
                             </div>	
-                            <Link to="/details">
-                                <a href="#" className="btn btn-primary">Learn more</a>
-                            </Link>
+                            <div className="d-flex justify-content-between">
+                                <a href="#" onClick={() => navigate(`/personajeDetalles/${personaje.uid}`)} className="btn btn-primary">Ver detalles</a>
+                                <button className="btn btn-warning">
+                                    <CiHeart className="iconoMeGusta"/>
+                                </button>
+                            </div>
+
+                            
+                            
                             
                         </div>
                     </div>

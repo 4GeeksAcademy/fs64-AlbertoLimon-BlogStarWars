@@ -1,11 +1,15 @@
 import React, { useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../../styles/index.css";
+import { CiHeart } from "react-icons/ci";
 
 export const Planetas = () => {
 
     const { store, actions} = useContext(Context);
+    const navigate = useNavigate();
+
+    console.log("PLANETAS ",store.planetas)
 
     useEffect(() => {
         actions.cargarPlanetas();
@@ -25,9 +29,14 @@ export const Planetas = () => {
                                 <span>Population: {planeta.population}</span>
                                 <span>Terrain: {planeta.terrain}</span>
                             </div>	
-                            <Link to="/details">
-                                <a href="#" className="btn btn-primary">Learn more</a>
-                            </Link>
+                            
+                            <div className="d-flex justify-content-between">
+                                <a href="#" onClick={() => navigate(`/planetaDetalles/${planeta.uid}`)} className="btn btn-primary">Ver detalles</a>
+                                <button className="btn btn-warning">
+                                    <CiHeart className="iconoMeGusta"/>
+                                </button>
+                            </div>
+                           
                             
                         </div>
                     </div>

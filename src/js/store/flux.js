@@ -49,7 +49,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			cargarPersonajes: async () => {
 				const data = await personajeOperationDispatcher.get()
 				const store = getStore();
-				
+				console.log(data)
 				setStore({...store, personajes: data.results});
 				
 			},
@@ -62,8 +62,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 			cargarNaves: async () => {
 				const data = await naveOperationDispatcher.get();;
 				const store = getStore();
-				console.log(data)
+				
 				setStore({...store, naves: data.results});
+			},
+			obtenerDetallesPersonaje: async (uid) => {
+				const data = await personajeOperationDispatcher.getPersonaje(uid);
+				const store = getStore();
+
+				setStore({...store, personaje: data})
+			},
+			obtenerDetallesPlaneta: async (uid) => {
+				const data = await planetaOperationDispatcher.getPlaneta(uid);
+				const store = getStore();
+
+				setStore({...store, planeta: data})
+			},
+			obtenerDetallesNave: async (uid) => {
+				const data = await naveOperationDispatcher.getNave(uid);
+				const store = getStore();
+
+				setStore({...store, nave: data})
 			}
 		}
 	};
