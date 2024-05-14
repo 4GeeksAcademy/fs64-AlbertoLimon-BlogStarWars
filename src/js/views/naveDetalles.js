@@ -2,65 +2,74 @@ import React, { useContext, useEffect } from "react";
 
 import "../../styles/home.css";
 import { Context } from "../store/appContext";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router";
 
 export const NaveDetalles = () => {
     const { store, actions} = useContext(Context);
 
+	const navigate = useNavigate();
+
+	const { id } = useParams();
+
+	const obtenerNaveDetalles = async (id) => {
+		await actions.obtenerDetallesNave(id);
+	}
+
+	
+
     useEffect(() => {
-        actions.obtenerDetallesNave();
+        obtenerNaveDetalles(id)
+		
     }, []);
 
     return (
         <>
-            <div className="card-container container">
+            <div classNameName="card-container container">
 				<div className="card  d-flex flex-row mb-3">
 					<img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Star_Wars_Logo.svg" className="card-img-top w-50" alt="..."/>
 					<div className="card-body text-center">
-						<h5 className="card-title">Card title</h5>
-						<p>
-
-						</p>
-						
+						<h5 className="card-title">{store.nave.properties.name}</h5>
+						<p>{store.nave.description}</p>	
 					</div>
 				</div>
 				
-				<div class="row">
-					<div class="col d-flex justify-content-center">
-						<p>Name </p>
-                        <p></p>
+				<div className="row">
+					<div className="col d-flex flex-column justify-content-center">
+						<p>Class</p>
+                        <p>{store.nave.properties.vehicle_class}</p>
 					</div>
-					<div class="col d-flex justify-content-center">
+					<div className="col d-flex flex-column justify-content-center">
 						
                         <p>Cargo capacity</p>
-                        <p></p>
+                        <p>{store.nave.properties.cargo_capacity}</p>
 					</div>
-					<div class="col d-flex justify-content-center">
+					<div className="col d-flex flex-column justify-content-center">
 						
                         <p>Crew</p>
-                        <p></p>
+                        <p>{store.nave.properties.crew}</p>
 					</div>
-					<div class="col d-flex justify-content-center">
+					<div className="col d-flex flex-column justify-content-center">
 						
                         <p>Length</p>
-                        <p></p>
+                        <p>{store.nave.properties.length}</p>
 					</div>
-					<div class="col d-flex justify-content-center">
+					<div className="col d-flex flex-column justify-content-center">
 						
                         <p>Model</p>
-                        <p></p>
+                        <p>{store.nave.properties.model}</p>
 					</div>
-					<div class="col d-flex justify-content-center">
+					<div className="col d-flex flex-column justify-content-center">
 						
                         <p>Passengers</p>
-                        <p></p>
+                        <p>{store.nave.properties.passengers}</p>
 					</div>
 				
 				</div>
 			</div>
-            <Link to="/">
-                <button className="btn btn-primary">Back to Home</button>
-            </Link>
+            
+                <button className="btn btn-primary" onClick={() => navigate('/')}>Back to Home</button>
+            
         
         </>
     )

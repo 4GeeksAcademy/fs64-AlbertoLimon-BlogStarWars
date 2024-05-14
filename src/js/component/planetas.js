@@ -9,14 +9,13 @@ export const Planetas = () => {
     const { store, actions} = useContext(Context);
     const navigate = useNavigate();
 
-    console.log("PLANETAS ",store.planetas)
-
     useEffect(() => {
         actions.cargarPlanetas();
     }, []);
 
     return (
         <>
+        
         <div className="scroll-container">
             <div className="d-inline-flex scroll">
                 {store.planetas.map((planeta) => (
@@ -31,7 +30,7 @@ export const Planetas = () => {
                             </div>	
                             
                             <div className="d-flex justify-content-between">
-                                <a href="#" onClick={() => navigate(`/planetaDetalles/${planeta.uid}`)} className="btn btn-primary">Ver detalles</a>
+                                <button onClick={() => navigate(`/planetaDetalles/${planeta.uid}`)} className="btn btn-primary">Ver detalles</button>
                                 <button className="btn btn-warning">
                                     <CiHeart className="iconoMeGusta"/>
                                 </button>

@@ -1,12 +1,22 @@
+import React from "react";
 import { useContext, useEffect } from "react"
 import { Context } from "../store/appContext"
+import { useNavigate, useParams } from "react-router";
 
 export const PersonajeDetalles = () => {
 
     const { store, actions } = useContext(Context);
 
+	const { id } = useParams();
+
+	const navigate = useNavigate();
+
+	const obtenerPersonajeDetalles = async (id) => {
+		await actions.obtenerDetallesPersonaje(id);
+	}
+
 	useEffect(() => {
-		actions.obtenerDetallesPersonaje();
+		obtenerPersonajeDetalles(id)
 	}, []);
 
     return (
@@ -15,45 +25,43 @@ export const PersonajeDetalles = () => {
 				<div className="card  d-flex flex-row mb-3">
 					<img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Star_Wars_Logo.svg" className="card-img-top w-50" alt="..."/>
 					<div className="card-body text-center">
-						<h4 className="card-title"></h4>
-						<p>
-
-						</p>
+						<h4 className="card-title">{store.personaje.properties.name}</h4>
+						<p>{store.personaje.description}</p>
 						
 					</div>
 				</div>
 				
-				<div class="row">
-					<div class="col d-flex justify-content-center">
+				<div className="row">
+					<div className="col d-flex flex-column justify-content-center">
 						<p>Name</p>
-						<p></p>
+						<p>{store.personaje.properties.name}</p>
 					</div>
-					<div class="col d-flex justify-content-center">
+					<div className="col d-flex flex-column justify-content-center">
 						<p>Birth Year</p>
-						<p></p>
+						<p>{store.personaje.properties.birth_year}</p>
 					</div>
-					<div class="col d-flex justify-content-center">
+					<div className="col d-flex flex-column justify-content-center">
 						<p>Gender</p>
-						<p></p>
+						<p>{store.personaje.properties.gender}</p>
 					</div>
-					<div class="col d-flex justify-content-center">
+					<div className="col d-flex flex-column justify-content-center">
 						<p>Height</p>
-						<p></p>
+						<p>{store.personaje.properties.height}</p>
 					</div>
-					<div class="col d-flex justify-content-center">
+					<div className="col d-flex flex-column justify-content-center">
 						<p>Skin color</p>
-						<p></p>
+						<p>{store.personaje.properties.skin_color}</p>
 					</div>
-					<div class="col d-flex justify-content-center">
+					<div className="col d-flex flex-column justify-content-center">
 						<p>Eye color</p>
-						<p></p>
+						<p>{store.personaje.properties.eye_color}</p>
 					</div>
 				
 				</div>
 			</div>
-            <Link to="/">
-                <button className="btn btn-primary">Back to Home</button>
-            </Link>
+            
+            <button className="btn btn-primary" onClick={() => navigate('/')} >Back to Home</button>
+            
         </>
     )
 }

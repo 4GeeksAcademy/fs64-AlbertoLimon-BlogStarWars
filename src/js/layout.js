@@ -28,9 +28,9 @@ const Layout = () => {
 						<Route exact path="/" element={<Home />} />
 						<Route path="/demo" element={<Demo />} />
 						<Route path="/single/:theid" element={<Single />} />
-						<Route path="/personajeDetalles" element={<PersonajeDetalles />} />
-						<Route path="/planetaDetalles" element={<PlanetaDetalles />} />
-						<Route path="/naveDetalles" element={<NaveDetalles />} />
+						<Route path="/personajeDetalles/:id" element={<PersonajeDetalles />} />
+						<Route path="/planetaDetalles/:id" element={<PlanetaDetalles />} />
+						<Route path="/naveDetalles/:id" element={<NaveDetalles />} />
 					</Routes>
 					<Footer />
 				</ScrollToTop>

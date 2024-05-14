@@ -8,8 +8,6 @@ export const Naves = () => {
 
     const { store, actions} = useContext(Context);
     const navigate = useNavigate();
-    
-    console.log("NAVES ",store.naves);
 
     useEffect(() => {
         actions.cargarNaves();
@@ -33,7 +31,7 @@ export const Naves = () => {
                             </div>	
                             
                             <div className="d-flex justify-content-between">
-                                <a href="#" onClick={() => navigate(`/naveDetalles/${nave.uid}`)} className="btn btn-primary">Ver detalles</a>
+                                <button onClick={() => navigate(`/naveDetalles/${nave.uid}`)} className="btn btn-primary">Ver detalles</button>
                                 <button className="btn btn-warning">
                                     <CiHeart className="iconoMeGusta"/>
                                 </button>

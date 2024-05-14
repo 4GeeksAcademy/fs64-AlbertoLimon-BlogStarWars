@@ -1,6 +1,7 @@
-import React, { useContext } from "react";
-import rigoImage from "../../img/rigo-baby.jpg";
+import React, { useContext, useEffect } from "react";
+
 import "../../styles/home.css";
+import { FaTrash } from "react-icons/fa";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import { Personajes } from "../component/personajes";
@@ -9,6 +10,11 @@ import { Naves } from "../component/naves";
 
 export const Home = () => {
 
+	const { store, actions } = useContext(Context)
+
+	useEffect(() => {
+
+	})
 
 	return (
 		<div className="container-fluid">
@@ -17,12 +23,18 @@ export const Home = () => {
     			<a className="navbar-brand">Navbar</a>
     			<div className="dropdown">
   					<button className="btn btn-secondary dropdown-toggle bg-primary" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-    					Dropdown button
+    					Favoritos
+						<span className="bg-secondary ms-1 px-1 py-1 rounded-2">{store.favoritos.length}</span>
   					</button>
+				
   				<ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-    				<li><a className="dropdown-item" href="#">Action</a></li>
-    				<li><a className="dropdown-item" href="#">Another action</a></li>
-    				<li><a className="dropdown-item" href="#">Something else here</a></li>
+    				{store.favoritos.map((favorito,index) => (
+					<li key={index}>
+						<span>{favorito.name}</span>
+						<button className="botonEliminarFavorito" onClick={() => actions.removeFavorito(index)}><FaTrash /></button>
+						
+					</li>
+					))}
   				</ul>
 				</div>
   			</div>
