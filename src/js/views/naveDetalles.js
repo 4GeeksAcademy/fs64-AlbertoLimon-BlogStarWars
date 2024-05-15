@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 
-import "../../styles/home.css";
+
+import "../../styles/detalles.css";
 import { Context } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router";
@@ -11,63 +12,65 @@ export const NaveDetalles = () => {
 
 	const navigate = useNavigate();
 
-	const { id } = useParams();
+	const { idNave } = useParams();
 
-	const obtenerNaveDetalles = async (id) => {
-		await actions.obtenerDetallesNave(id);
+	const obtenerNaveDetalles = async (idNave) => {
+		await actions.obtenerDetallesNave(idNave);
 	}
 
     useEffect(() => {
-        obtenerNaveDetalles(id)
+        obtenerNaveDetalles(idNave)
 		
     }, []);
 
     return (
         <>
-            <div className="card-container container">
-				<div className="card d-flex flex-row mb-3">
-					<img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Star_Wars_Logo.svg" className="card-img-top imagenDetalles" alt="..."/>
+            <div className="card-container container contenedorDetalles">
+				<div className="card detallesPrincipal">
+					<img src="https://www.cinemascomics.com/wp-content/uploads/2021/06/Destructor-Estelar-Interdictor.jpg" className="card-img-top imagenDetalles" alt="..."/>
 					<div className="card-body text-center">
 						<h5 className="card-title">{store.nave.properties.name}</h5>
 						<p>{store.nave.description}</p>	
 					</div>
 				</div>
 				
-				<div className="row">
-					<div className="col d-flex flex-column justify-content-center">
-						<p>Class</p>
+				<hr className="separadorDetalles" />
+
+				<div className="detallesSecundario">
+					<div className="detalleIndividual">
+						<h5>Class</h5>
                         <p>{store.nave.properties.vehicle_class}</p>
 					</div>
-					<div className="col d-flex flex-column justify-content-center">
+					<div className="detalleIndividual">
 						
-                        <p>Cargo capacity</p>
+						<h5>Cargo capacity</h5>
                         <p>{store.nave.properties.cargo_capacity}</p>
 					</div>
-					<div className="col d-flex flex-column justify-content-center">
+					<div className="detalleIndividual">
 						
-                        <p>Crew</p>
+						<h5>Crew</h5>
                         <p>{store.nave.properties.crew}</p>
 					</div>
-					<div className="col d-flex flex-column justify-content-center">
+					<div className="detalleIndividual">
 						
-                        <p>Length</p>
+						<h5>Length</h5>
                         <p>{store.nave.properties.length}</p>
 					</div>
-					<div className="col d-flex flex-column justify-content-center">
+					<div className="detalleIndividual">
 						
-                        <p>Model</p>
+						<h5>Model</h5>
                         <p>{store.nave.properties.model}</p>
 					</div>
-					<div className="col d-flex flex-column justify-content-center">
+					<div className="detalleIndividual">
 						
-                        <p>Passengers</p>
+						<h5>Passengers</h5>
                         <p>{store.nave.properties.passengers}</p>
 					</div>
 				
 				</div>
 			</div>
             
-                <button className="btn btn-outline-primary" onClick={() => navigate('/')}>Back to Home</button>
+            <button className="btn btn-outline-primary" onClick={() => navigate('/')}>Back to Home</button>
             
         
         </>

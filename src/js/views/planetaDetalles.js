@@ -9,52 +9,54 @@ export const PlanetaDetalles = () => {
 
 	const navigate = useNavigate();
 
-	const { id } = useParams();
+	const { idPlaneta } = useParams();
 	
-	const obtenerPlanetaDetalles = async (id) => {	
-		console.log(id)
-		await actions.obtenerDetallesPlaneta(id);
+	const obtenerPlanetaDetalles = async (idPlaneta) => {	
+		
+		await actions.obtenerDetallesPlaneta(idPlaneta);
 	}
 
 	useEffect(() => {
-		obtenerPlanetaDetalles(id)
+		obtenerPlanetaDetalles(idPlaneta)
 	}, []);
 
     return (
         <>
 
-        <div className="card-container container">
-				<div className="card d-flex flex-row mb-3">
-					<img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Star_Wars_Logo.svg" className="card-img-top imagenDetalles" alt=""/>
+        <div className="card-container container contenedorDetalles">
+				<div className="card detallesPrincipal">
+					<img src="https://assets-prd.ignimgs.com/2022/02/10/06-dantooine-1644525955609.jpg" className="card-img-top imagenDetalles" alt=""/>
 					<div className="card-body text-center">
 						<h4 className="card-title">{store.planeta.properties.name}</h4>
 						<p>{store.planeta.description}</p>
 					</div>
 				</div>
 				
-				<div className="row">
-					<div className="col d-flex flex-column justify-content-center">
-						<p><strong>Name</strong></p>
+				<hr className="separadorDetalles" />
+
+				<div className="detallesSecundario">
+					<div className="detalleIndividual">
+						<h5>Name</h5>
 						<p>{store.planeta.properties.name}</p>
 					</div>
-					<div className="col d-flex flex-column justify-content-center">
-						<p><strong>Climate</strong></p>
+					<div className="detalleIndividual">
+						<h5>Climate</h5>
 						<p>{store.planeta.properties.climate}</p>
 					</div>
-					<div className="col d-flex flex-column justify-content-center text-center">
-						<p><strong>Population</strong></p>
+					<div className="detalleIndividual">
+						<h5>Population</h5>
 						<p>{store.planeta.properties.population}</p>
 					</div>
-					<div className="col d-flex flex-column justify-content-center">
-						<p><strong>Terrain</strong></p>
+					<div className="detalleIndividual">
+						<h5>Terrain</h5>
 						<p>{store.planeta.properties.terrain}</p>
 					</div>
-					<div className="col d-flex flex-column justify-content-center">
-						<p><strong>Diameter</strong></p>
+					<div className="detalleIndividual">
+						<h5>Perimeter</h5>
 						<p>{store.planeta.properties.diameter}</p>
 					</div>
-					<div className="col d-flex flex-column justify-content-center">
-						<p><strong>Gravity</strong></p>
+					<div className="detalleIndividual">
+						<h5>Gravity</h5>
 						<p>{store.planeta.properties.gravity}</p>
 					</div>
 				

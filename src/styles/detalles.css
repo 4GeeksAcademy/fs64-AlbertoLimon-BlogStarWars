@@ -1,0 +1,36 @@
+.contenedorDetalles{
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    width: 100%;
+    padding: 1rem;
+    gap: 1rem;
+    flex-direction: column;
+}
+.detallesPrincipal{
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 1rem;
+    flex-direction: row;
+}
+.separadorDetalles{
+    border-top: 3px solid red;
+}
+.detallesSecundario{
+    color: red;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    
+}
+.detalleIndividual{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: stretch;
+    flex-direction: column;
+}
+.imagenDetalles{
+    width: 250%;
+}

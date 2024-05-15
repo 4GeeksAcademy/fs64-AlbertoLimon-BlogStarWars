@@ -26,58 +26,36 @@ const getState = ({ getStore, getActions, setStore }) => {
 			personaje: {
 				"description": "",
 				"properties": {
-						"height": "",
-						"mass": "",
-						"hair_color": "",
-						"skin_color": "",
-						"eye_color": "",
-						"birth_year": "",
-						"gender": "",
-						"created": "",
-						"edited": "",
-						"name": "",
-						"homeworld": "",
-						"url": ""
-					},
-					
-					
+						height: "",						
+						hair_color: "",
+						skin_color: "",
+						eye_color: "",
+						birth_year: "",
+						gender: "",												
+						name: "",
+					},		
 				
 			},
 			nave: {
 				"properties": {
-					"model": "",
-					"vehicle_class": "",
-					"manufacturer": "",
-					"cost_in_credits": "",
-					"length": "",
-					"crew": "",
-					"passengers": "",
-					"max_atmosphering_speed": "",
-					"cargo_capacity": "",
-					"consumables": "",
-					"films": [],
-					"pilots": [],
-					"created": "",
-					"edited": "",
-					"name": "",
-					"url": ""
+					model: "",						
+					length: "",
+					crew: "",
+					passengers: "",
+					cargo_capacity: "",
+					name: "",
 				}
 			},
 			planeta: {
 				"description" : "",
 				"properties": {
-					"diameter": "",
-					"rotation_period": "",
-					"orbital_period": "",
-					"gravity": "",
-					"population": "",
-					"climate": "",
-					"terrain": "",
-					"surface_water": "",
-					"created": "",
-					"edited": "",
-					"name": "",
-					"url": ""
+					diameter: "",
+					gravity: "",
+					population: "",
+					climate: "",
+					terrain: "",
+					name: "",
+					
 				}
 			}
 		},
@@ -124,20 +102,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 				
 				setStore({...store, naves: data.results});
 			},
-			obtenerDetallesPersonaje: async (uid) => {
-				const { result: personaje} = await personajeOperationDispatcher.getPersonaje(uid);
+			obtenerDetallesPersonaje: async (idPersonaje) => {
+				const { result: personaje} = await personajeOperationDispatcher.getPersonaje(idPersonaje);
 				const store = getStore();
 
 				setStore({...store, personaje})
 			},
-			obtenerDetallesPlaneta: async (uid) => {
-				const { result: planeta} = await planetaOperationDispatcher.getPlaneta(uid);
+			obtenerDetallesPlaneta: async (idPlaneta) => {
+				const { result: planeta} = await planetaOperationDispatcher.getPlaneta(idPlaneta);
 				const store = getStore();
 				console.log("PLANETA ",planeta);
 				setStore({...store, planeta})
 			},
-			obtenerDetallesNave: async (uid) => {
-				const { result: nave} = await naveOperationDispatcher.getNave(uid);
+			obtenerDetallesNave: async (idNave) => {
+				const { result: nave} = await naveOperationDispatcher.getNave(idNave);
 				const store = getStore();
 				
 				setStore({...store, nave})

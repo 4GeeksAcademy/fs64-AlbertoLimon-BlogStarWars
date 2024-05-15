@@ -1,4 +1,5 @@
 import React from "react";
+import "../../styles/detalles.css";
 import { useContext, useEffect } from "react"
 import { Context } from "../store/appContext"
 import { useNavigate, useParams } from "react-router";
@@ -7,22 +8,22 @@ export const PersonajeDetalles = () => {
 
     const { store, actions } = useContext(Context);
 
-	const { id } = useParams();
+	const { idPersonaje } = useParams();
 
 	const navigate = useNavigate();
 
-	const obtenerPersonajeDetalles = async (id) => {
-		await actions.obtenerDetallesPersonaje(id);
+	const obtenerPersonajeDetalles = async (idPersonaje) => {
+		await actions.obtenerDetallesPersonaje(idPersonaje);
 	}
 
 	useEffect(() => {
-		obtenerPersonajeDetalles(id)
+		obtenerPersonajeDetalles(idPersonaje)
 	}, []);
 
     return (
         <>
-        <div className="card-container container">
-				<div className="card d-flex flex-row mb-3">
+        <div className="card-container container contenedorDetalles">
+				<div className="card detallesPrincipal">
 					<img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Star_Wars_Logo.svg" className="card-img-top imagenDetalles" alt="..."/>
 					<div className="card-body text-center">
 						<h4 className="card-title">{store.personaje.properties.name}</h4>
@@ -31,29 +32,31 @@ export const PersonajeDetalles = () => {
 					</div>
 				</div>
 				
-				<div className="row">
-					<div className="col d-flex flex-column justify-content-center">
-						<p>Name</p>
+				<hr className="separadorDetalles" />
+				
+				<div className="detallesSecundario">
+					<div className="detalleIndividual">
+						<h5>Name</h5>
 						<p>{store.personaje.properties.name}</p>
 					</div>
-					<div className="col d-flex flex-column justify-content-center">
-						<p>Birth Year</p>
+					<div className="detalleIndividual">
+						<h5>Birth Year</h5>
 						<p>{store.personaje.properties.birth_year}</p>
 					</div>
-					<div className="col d-flex flex-column justify-content-center">
-						<p>Gender</p>
+					<div className="detalleIndividual">
+						<h5>Gender</h5>
 						<p>{store.personaje.properties.gender}</p>
 					</div>
-					<div className="col d-flex flex-column justify-content-center">
-						<p>Height</p>
+					<div className="detalleIndividual">
+						<h5>Height</h5>
 						<p>{store.personaje.properties.height}</p>
 					</div>
-					<div className="col d-flex flex-column justify-content-center">
-						<p>Skin color</p>
+					<div className="detalleIndividual">
+						<h5>Skin color</h5>
 						<p>{store.personaje.properties.skin_color}</p>
 					</div>
-					<div className="col d-flex flex-column justify-content-center">
-						<p>Eye color</p>
+					<div className="detalleIndividual">
+						<h5>Eye color</h5>
 						<p>{store.personaje.properties.eye_color}</p>
 					</div>
 				

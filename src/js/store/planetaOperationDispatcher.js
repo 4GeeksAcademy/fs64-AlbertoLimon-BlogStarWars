@@ -21,8 +21,8 @@ const planetaOperationDispatcher = {
         */
     },
 
-    getPlaneta: async (uid) => {
-        const response = await fetch(`https://www.swapi.tech/api/planets/${uid}`, {
+    getPlaneta: async (id) => {
+        const response = await fetch(`https://www.swapi.tech/api/planets/${id}`, {
             method: 'GET',
             headers: {
                 'Content-Type':'application/json'

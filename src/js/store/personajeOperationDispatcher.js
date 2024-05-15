@@ -21,8 +21,8 @@ const personajeOperationDispatcher = {
         */
     },
 
-    getPersonaje: async (uid) => {
-        const response = await fetch(`https://www.swapi.tech/api/people/${uid}`, {
+    getPersonaje: async (id) => {
+        const response = await fetch(`https://www.swapi.tech/api/people/${id}`, {
             method: 'GET',
             headers: {
                 'Content-Type':'application/json'

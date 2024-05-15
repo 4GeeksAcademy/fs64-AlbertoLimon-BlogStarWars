@@ -21,8 +21,8 @@ const naveOperationDispatcher = {
         */
     },
 
-    getNave: async (uid) => {
-        const response = await fetch(`https://www.swapi.tech/api/vehicles/${uid}`, {
+    getNave: async (id) => {
+        const response = await fetch(`https://www.swapi.tech/api/vehicles/${id}`, {
             method: 'GET',
             headers: {
                 'Content-Type':'application/json'
