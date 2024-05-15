@@ -24,8 +24,8 @@ export const PlanetaDetalles = () => {
         <>
 
         <div className="card-container container">
-				<div className="card  d-flex flex-row mb-3">
-					<img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Star_Wars_Logo.svg" className="card-img-top w-50" alt="..."/>
+				<div className="card d-flex flex-row mb-3">
+					<img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Star_Wars_Logo.svg" className="card-img-top imagenDetalles" alt=""/>
 					<div className="card-body text-center">
 						<h4 className="card-title">{store.planeta.properties.name}</h4>
 						<p>{store.planeta.description}</p>
@@ -34,34 +34,34 @@ export const PlanetaDetalles = () => {
 				
 				<div className="row">
 					<div className="col d-flex flex-column justify-content-center">
-						<p>Name</p>
+						<p><strong>Name</strong></p>
 						<p>{store.planeta.properties.name}</p>
 					</div>
-					<div class="col d-flex flex-column justify-content-center">
-						<p>Climate</p>
+					<div className="col d-flex flex-column justify-content-center">
+						<p><strong>Climate</strong></p>
 						<p>{store.planeta.properties.climate}</p>
 					</div>
-					<div class="col d-flex flex-column justify-content-center">
-						<p>Population</p>
+					<div className="col d-flex flex-column justify-content-center text-center">
+						<p><strong>Population</strong></p>
 						<p>{store.planeta.properties.population}</p>
 					</div>
 					<div className="col d-flex flex-column justify-content-center">
-						<p>Terrain</p>
+						<p><strong>Terrain</strong></p>
 						<p>{store.planeta.properties.terrain}</p>
 					</div>
 					<div className="col d-flex flex-column justify-content-center">
-						<p>Diameter</p>
+						<p><strong>Diameter</strong></p>
 						<p>{store.planeta.properties.diameter}</p>
 					</div>
 					<div className="col d-flex flex-column justify-content-center">
-						<p>Gravity</p>
+						<p><strong>Gravity</strong></p>
 						<p>{store.planeta.properties.gravity}</p>
 					</div>
 				
 				</div>
 			</div>
             
-            <button className="btn btn-primary" onClick={() => navigate('/')}>Back to Home</button>
+            <button className="btn btn-outline-primary" onClick={() => navigate('/')}>Back to Home</button>
             
         </>
     )

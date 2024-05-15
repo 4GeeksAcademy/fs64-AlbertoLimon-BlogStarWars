@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import "../../styles/index.css";
 import { CiHeart } from "react-icons/ci";
 
@@ -16,11 +16,10 @@ export const Naves = () => {
 
     return (
         <>
-        
 			<div className="scroll-container">
                 <div className="d-inline-flex scroll">
                     {store.naves.map((nave) => (
-                    <div className="card" style={{width: "18rem"}}>
+                    <div className="card">
                         <img src="https://www.cinemascomics.com/wp-content/uploads/2021/06/Destructor-Estelar-Interdictor.jpg" className="card-img-top" alt="..."/>
                         <div className="card-body">
                             <h5 className="card-title">{nave.name}</h5>
@@ -31,8 +30,8 @@ export const Naves = () => {
                             </div>	
                             
                             <div className="d-flex justify-content-between">
-                                <button onClick={() => navigate(`/naveDetalles/${nave.uid}`)} className="btn btn-primary">Ver detalles</button>
-                                <button className="btn btn-warning">
+                                <button onClick={() => navigate(`/naveDetalles/${nave.uid}`)} className="btn btn-outline-primary">Ver detalles</button>
+                                <button className="btn btn-outline-warning" onClick={() => {actions.setFavoritos(nave)}}>
                                     <CiHeart className="iconoMeGusta"/>
                                 </button>
                             </div>

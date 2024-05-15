@@ -20,7 +20,7 @@ export const Planetas = () => {
             <div className="d-inline-flex scroll">
                 {store.planetas.map((planeta) => (
                 <div className="card-container">
-                    <div className="card" style={{width: "18rem"}}>
+                    <div className="card">
                         <img src="https://assets-prd.ignimgs.com/2022/02/10/06-dantooine-1644525955609.jpg" className="card-img-top" alt="..."/>
                         <div className="card-body">
                             <h5 className="card-title">{planeta.name}</h5>
@@ -30,8 +30,8 @@ export const Planetas = () => {
                             </div>	
                             
                             <div className="d-flex justify-content-between">
-                                <button onClick={() => navigate(`/planetaDetalles/${planeta.uid}`)} className="btn btn-primary">Ver detalles</button>
-                                <button className="btn btn-warning">
+                                <button onClick={() => navigate(`/planetaDetalles/${planeta.uid}`)} className="btn btn-outline-primary">Ver detalles</button>
+                                <button className="btn btn-outline-warning" onClick={() => {actions.setFavoritos(planeta)}}>
                                     <CiHeart className="iconoMeGusta"/>
                                 </button>
                             </div>

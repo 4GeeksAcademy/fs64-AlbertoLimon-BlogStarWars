@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router";
 
 export const NaveDetalles = () => {
+	
     const { store, actions} = useContext(Context);
 
 	const navigate = useNavigate();
@@ -16,8 +17,6 @@ export const NaveDetalles = () => {
 		await actions.obtenerDetallesNave(id);
 	}
 
-	
-
     useEffect(() => {
         obtenerNaveDetalles(id)
 		
@@ -25,9 +24,9 @@ export const NaveDetalles = () => {
 
     return (
         <>
-            <div classNameName="card-container container">
-				<div className="card  d-flex flex-row mb-3">
-					<img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Star_Wars_Logo.svg" className="card-img-top w-50" alt="..."/>
+            <div className="card-container container">
+				<div className="card d-flex flex-row mb-3">
+					<img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Star_Wars_Logo.svg" className="card-img-top imagenDetalles" alt="..."/>
 					<div className="card-body text-center">
 						<h5 className="card-title">{store.nave.properties.name}</h5>
 						<p>{store.nave.description}</p>	
@@ -68,7 +67,7 @@ export const NaveDetalles = () => {
 				</div>
 			</div>
             
-                <button className="btn btn-primary" onClick={() => navigate('/')}>Back to Home</button>
+                <button className="btn btn-outline-primary" onClick={() => navigate('/')}>Back to Home</button>
             
         
         </>

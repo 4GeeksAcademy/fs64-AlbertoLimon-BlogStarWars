@@ -22,8 +22,8 @@ export const PersonajeDetalles = () => {
     return (
         <>
         <div className="card-container container">
-				<div className="card  d-flex flex-row mb-3">
-					<img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Star_Wars_Logo.svg" className="card-img-top w-50" alt="..."/>
+				<div className="card d-flex flex-row mb-3">
+					<img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Star_Wars_Logo.svg" className="card-img-top imagenDetalles" alt="..."/>
 					<div className="card-body text-center">
 						<h4 className="card-title">{store.personaje.properties.name}</h4>
 						<p>{store.personaje.description}</p>
@@ -60,7 +60,7 @@ export const PersonajeDetalles = () => {
 				</div>
 			</div>
             
-            <button className="btn btn-primary" onClick={() => navigate('/')} >Back to Home</button>
+            <button className="btn btn-outline-primary" onClick={() => navigate('/')} >Back to Home</button>
             
         </>
     )

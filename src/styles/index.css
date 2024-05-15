@@ -13,3 +13,10 @@ h2{
 .iconoMeGusta{
     font-size: 1.7rem;
 }
+.card{
+    width: 18rem;
+    margin-right: 2rem;
+}
+.imagenDetalles{
+    width: 100%;
+}

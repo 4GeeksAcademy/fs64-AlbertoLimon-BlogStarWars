@@ -1,0 +1,10 @@
+nav{
+    margin-bottom: 1rem;
+}
+.imagenNavbar{
+    width: 10%;
+}
+.botonEliminarFavorito{
+    border: none;
+    background-color: transparent;
+}

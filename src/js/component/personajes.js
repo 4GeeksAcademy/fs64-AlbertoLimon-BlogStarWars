@@ -20,7 +20,7 @@ export const Personajes = () => {
             <div className="d-inline-flex scroll">
                 {store.personajes.map((personaje) => (
                 <div className="card-container">
-                    <div className="card" style={{width: "18rem"}} key={personaje.url}>
+                    <div className="card" key={personaje.url}>
                         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Star_Wars_Logo.svg" className="card-img-top" alt="..."/>
                         <div className="card-body">
                             <h5 className="card-title">{personaje.name}</h5>
@@ -30,15 +30,12 @@ export const Personajes = () => {
                                 <span>Eye-color: {personaje.eye_color}</span>
                             </div>	
                             <div className="d-flex justify-content-between">
-                                <button onClick={() => navigate(`/personajeDetalles/${personaje.uid}`)} className="btn btn-primary">Ver detalles</button>
-                                <button className="btn btn-warning" onClick={() => actions.setFavoritos(personaje)}>
+                                <button onClick={() => navigate(`/personajeDetalles/${personaje.uid}`)} className="btn btn-outline-primary">Ver detalles</button>
+                                <button className="btn btn-outline-warning" onClick={() => actions.setFavoritos(personaje)}>
                                     <CiHeart className="iconoMeGusta"/>
                                 </button>
                             </div>
-
-                            
-                            
-                            
+     
                         </div>
                     </div>
                 </div>
