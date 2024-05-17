@@ -11,13 +11,13 @@ export const PlanetaDetalles = () => {
 
 	const { idPlaneta } = useParams();
 	
+	/*
 	const obtenerPlanetaDetalles = async (idPlaneta) => {	
-		
 		await actions.obtenerDetallesPlaneta(idPlaneta);
-	}
+	}*/
 
 	useEffect(() => {
-		obtenerPlanetaDetalles(idPlaneta)
+		actions.obtenerDetallesPlaneta(idPlaneta)
 	}, []);
 
     return (

@@ -10,7 +10,7 @@ export const Navbar = () => {
 	const navigate = useNavigate();
 
 	return (
-		<nav className="navbar navbar-light bg-white">
+		<nav className="navbar navbar-light container bg-light">
 				<div className="container">
 					<span onClick={() => {navigate('/')}}>
 					<img src="https://logowik.com/content/uploads/images/528_star_wars.jpg" className="navbar-brand imagenNavbar" alt="..."/>

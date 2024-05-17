@@ -14,12 +14,13 @@ export const NaveDetalles = () => {
 
 	const { idNave } = useParams();
 
+	/*
 	const obtenerNaveDetalles = async (idNave) => {
 		await actions.obtenerDetallesNave(idNave);
-	}
+	}*/
 
     useEffect(() => {
-        obtenerNaveDetalles(idNave)
+        actions.obtenerDetallesNave(idNave)
 		
     }, []);
 

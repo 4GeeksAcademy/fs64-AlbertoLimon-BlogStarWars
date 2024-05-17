@@ -12,12 +12,15 @@ export const PersonajeDetalles = () => {
 
 	const navigate = useNavigate();
 
+	/*
 	const obtenerPersonajeDetalles = async (idPersonaje) => {
 		await actions.obtenerDetallesPersonaje(idPersonaje);
 	}
 
+	*/
+
 	useEffect(() => {
-		obtenerPersonajeDetalles(idPersonaje)
+		actions.obtenerDetallesPersonaje(idPersonaje)
 	}, []);
 
     return (
